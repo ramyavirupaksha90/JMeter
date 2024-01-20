@@ -1,0 +1,182 @@
+ 
+Agenda
+
+Git Commands
+GitHub Repo 
+Locators 
+CSS selector - we use in cypress
+Xpath - cypress/selenium
+Cypress Set up
+Phase-1 end project
+
+
+
+**********************************************************
+Git -  https://git-scm.com/downloads
+
+git –version
+
+Nodejs - https://nodejs.org/en/download
+
+node -v
+
+VS Code - https://code.visualstudio.com/download
+
+
+
+Xpath
+Absolute xpath : 
+ /html/body/div/div/div/div
+
+Relative xpath
+
+//tag
+//h2
+
+//tag[@atr=’val’] - syntax
+//input[@id='email']
+//input[@id='pass']
+//a[@data-testid='open-registration-form-button']
+//tag[text()=’value’]
+//a[text()='Create new account']
+//a[text()='Forgotten password?']
+//h2[text()=’Facebook helps you connect and share with the people in your life.’]
+//tag[contains(text(),’substring’)]
+//h2[contains(text(),'people in your life.')]
+
+Using and
+//input[@type='radio' and @value='1']
+
+
+Using sibling
+//label[text()='Female']/following-sibling::input
+//select[@id='day']/option[@selected='1']/preceding-sibling::option[1]
+
+Using Child
+//select[@id='day']/option[@selected='1']
+
+
+*		
+Create new project
+
+mkdir facebook
+cd facebook
+npm init 
+npm install cypress --save-dev
+npx cypress open
+cypress\e2e\TC01_LoginTest.cy.js
+
+//====================================================================
+
+
+
+
+
+
+
+
+
+
+
+package.json
+
+{
+  "name": "facebook",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "cypress": "^13.3.1"
+  },
+  "dependencies": {
+    "@cypress/xpath": "^2.0.3"
+  }
+}
+
+
+
+Scenarios
+describe('This spec will be used to test the login scenarios', () => {
+ 
+  it('Login Failure scenario', () => {
+   cy.visit('https://simplilearn.com/')
+
+
+    //click on login button
+    cy.get("a.login").click();
+
+
+    //type abcxy@gmail.com in email
+    cy.xpath('//input[@name="user_login"]').type('abcxy@gmail.com');
+
+
+    //type Dummy@123 in password section
+    cy.xpath('//input[@name="user_pwd"]').type('Dummy@123');
+
+
+    //click on login button
+    cy.xpath('//input[@name="btn_login"]').click();
+
+
+   //Validate the error message is coming after entering wrong passwrod
+    cy.get("div#msg_box").contains("The email or password you have entered is invalid.")
+
+
+
+
+  })
+})
+
+
+Commands to run the cypress
+
+npx cypress run
+npx cypress run -b chrome --headed
+
+
+// Phase end project
+
+cd ..
+mkdir Phase1Project
+cd Phase1Project
+npm init
+npm install cypress --save-dev
+Add the xpath dependency in package.json file
+npm install
+npx cypress open
+Spec name :  cypress\e2e\TC01_HSBC_ATMSearch.cy.js
+ Inside support/e2e.js add require('@cypress/xpath')
+
+
+
+describe('This spec will be used to test the ATM search functionality', () => {
+ 
+  beforeEach(() => {
+    cy.visit('https://www.hsbc.co.in/')
+  })
+ 
+  it('Validated the ATM search', () => {
+ //1. Open https://www.hsbc.co.in/
+   
+    //2. Click on Find your nearest branch or ATM link in footer section
+    cy.xpath("//footer//a[contains(text(),'Find your')]").click()
+
+   
+
+  //3. Validate in new page the URL has String = ‘/ways-to-bank/branches/’
+    cy.url().should('include', '/ways-to-bank/branches/')
+
+
+
+  })
+})
+
+
+https://docs.google.com/document/d/1W7cxM_PvVzngQGLt05x9XvQlGxJwxY0EERIc6EBxTxo/edit
+
+		

@@ -1,0 +1,10 @@
+Push code to github
+
+Right click on project > properties > copy the path
+cd C:\Users\dell\eclipse-workspace\Feb23\CoreJava
+git init
+git add .
+git commit -m “first commit”
+git remote add origin https://github.com/nicks204/Core-Java.git
+git push origin master
+

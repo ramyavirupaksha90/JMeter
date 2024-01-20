@@ -1,0 +1,1616 @@
+Phase-2 Agenda
+
+Core Java -  a programming language 
+Selenium
+IDE : https://chrome.google.com/webstore/detail/selenium-ide/mooikfkahbdckldjjndioackbalphokd
+
+Webdriver
+Grid
+Framework using TestNg
+Framework using Cucumber 
+Database concepts - MySQL
+TDD using Junit
+
+
+//===================================================================
+
+Softwares required
+
+JDK8 or above https://www.oracle.com/in/java/technologies/javase/jdk11-archive-downloads.html
+Eclipse : https://www.eclipse.org/downloads/
+Maven: https://maven.apache.org/download.cgi
+WebDriver : https://mvnrepository.com/artifact/org.seleniumhq.selenium/selenium-java/3.141.59
+
+
+
+
+//===================================================
+
+package test;
+
+public class Calculator {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		
+		System.out.println(4+5);
+		
+		int num1=10;
+		int num2=20;
+		int result = num1+num2;
+		
+		System.out.println("The result is " + result);
+	}
+
+}
+//==============================================
+
+package test;
+
+public class StringOperations {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		
+		String str1 = "Clean India Green India";
+		
+		System.out.println("Total num of chars are " + str1.length());
+		
+		System.out.println("First char is " + str1.charAt(0));
+		
+		System.out.println("Last char is " + str1.charAt(str1.length()-1));
+		
+		System.out.println("The upper case string is " + str1.toUpperCase());
+
+	}
+
+}
+
+
+//=========================================================
+
+package test;
+
+public class ArrayExample {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		
+		int[] arr1 = {50,54,12,23,43,90};
+		
+		System.out.println("Total num of values inside array are " + arr1.length);
+		
+		System.out.println("Value at location 2 is " + arr1[1]);
+		
+		System.out.println("Value at last location is " + arr1[arr1.length-1]);
+
+	}
+
+}
+package test;
+
+public class LoopingExample {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		
+		// print all the numbers from 1 to 10
+		// while loop
+		
+		System.out.println(" Using while *************************");
+		int num1=1;
+		while(num1<=10) {
+			System.out.println(num1);
+			num1=num1+1;
+		}
+	
+		System.out.println("Using while in descending order *************************");
+		
+		// print all the numbers from 10 to 1
+		// while loop
+		
+		int num2=10;
+		while(num2>=1) {
+			System.out.println(num2);
+			num2=num2-1;
+		}
+		
+		System.out.println("Using for loop *************************");
+		// print all the numbers from 1 to 10
+		// for loop
+		for(int num3=1;num3<=10;num3++) {
+			
+			System.out.println(num3);
+		}
+		
+		System.out.println("Even numbers Using for loop *************************");
+		
+		// Find even numbers between 1 to 50 using for loop
+		for(int num4=2;num4<=50;num4+=2) {
+			
+			System.out.println(num4);
+		}
+		
+		// for each loop
+		System.out.println("Using for each loop *************************");
+		
+		int[] arr1 = {50,54,12,23,43,90};
+		int sum = 0;
+		for(int value:arr1) {
+			
+			System.out.println(value);
+			sum+=value;
+			
+		}
+		System.out.println("Sum is " + sum);
+		
+		//**************************************
+		
+		String str = "Automation testing using selenium and Java";
+		
+		
+		// solution 1
+		int count=1;
+		for(int i=0;i<str.length();i++) {
+			
+			if(str.charAt(i)==' ') {
+				count++;
+			}
+		}
+		
+		System.out.println("Total num of words are " + count);
+		 
+		
+		//solution2
+		
+		System.out.println("Total num of words are " + str.split(" ").length);
+			
+		
+	}
+
+}
+
+
+
+
+
+
+//================================================================
+
+package test;
+
+public class ReversalExample {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+		// String reversal
+		String str = "I am feeling lucky";
+		String reversedString = "";
+		for (int i = str.length(); i > 0; i--) {
+			reversedString = reversedString + str.charAt(i - 1);
+		}
+		System.out.println("##################String reversal##################");
+		System.out.println(reversedString);
+
+		// find the sum of all the digits in num1
+		int sumofDigits = 0;
+		int reverseDigit = 0;
+		for (int num1 = 10282023; num1 > 0; num1 /= 10) {
+			int remainder = num1 % 10;
+			reverseDigit = reverseDigit * 10 + remainder;
+			sumofDigits += remainder;
+			// System.out.println(remainder);
+		}
+
+		// find the reverse of num1
+		System.out.println("##################Reverse digits###################");
+		System.out.println(reverseDigit);
+
+		// find the sum of all the digits in num1
+		System.out.println("###############sum of all the digits###############");
+		System.out.println(sumofDigits);
+
+	}
+
+}
+
+
+
+//================================================
+
+package oops;
+
+public class Employee {
+	
+	public String Name;
+	public int EmpId;
+	private int Salary;
+	
+	public void Display() {
+		
+		System.out.println("Name of the employee is " + Name);
+		System.out.println("Id of the employee is " + EmpId);
+		System.out.println("Salary of the employee is " + Salary);
+	}
+	
+	public void SetSalary(int sal) {
+		
+		this.Salary = sal;
+	}
+	
+	// Default cons
+	public Employee() {
+		
+		System.out.println("Inside default cons");
+	}
+	
+	
+	// parameterized cons
+	public Employee(String Name1,int EmpId1, int Salary1) {
+		
+		System.out.println("Inside param cons");
+		
+		this.Name = Name1;
+		this.EmpId = EmpId1;
+		this.Salary = Salary1;
+				
+	}
+
+}
+
+
+
+
+
+
+//=============================================
+
+package oops;
+
+public class RunnerClass {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		
+		Employee emp1 = new Employee();
+		emp1.Name = "Ramya";
+		emp1.EmpId = 100;
+		emp1.SetSalary(50000);
+		
+		
+		Employee emp2 = new Employee();
+		emp2.Name = "Ashima";
+		emp2.EmpId = 101;
+		emp2.SetSalary(75000);
+		
+		
+		Employee emp3 = new Employee("Rohini",102,80000);
+		
+		emp1.Display();
+		emp2.Display();
+		emp3.Display();
+
+	}
+
+}
+
+
+
+
+
+
+//============================================================
+
+package collections;
+
+import java.util.ArrayList;
+
+public class ListExample {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		
+		String[] names = {"abc","xyz","pqr"};
+		
+		ArrayList<String> list1 = new ArrayList<String>();
+		
+		// adding data to the list
+		list1.add("Akshay");
+		list1.add("Priya");
+		list1.add("Pankaj");
+		
+		System.out.println(list1);
+		
+		// Access the data at 3rd position
+		System.out.println("the data at 3rd position is " + list1.get(2));
+
+		
+		//removing the data
+		list1.remove(0);
+		System.out.println(list1);
+		
+		// Access the data at 1st position
+		System.out.println("the data at 1st position is " + list1.get(0));
+
+list1.add("Deepa");
+		list1.add("Aprana");
+		System.out.println(list1);
+		
+		//Print the last name into the array list
+		System.out.println("Last name is " + list1.get(list1.size()-1));
+
+		//change the value at 3rd position
+		list1.set(2, "Savita");
+		System.out.println(list1);
+
+	
+		// Iterate through the list
+		for(int i=0;i<list1.size();i++) {
+			
+			//System.out.println("Value at index " + i + " "  + list1.get(i));
+			
+			if(list1.get(i).equals("Savita")) {
+				System.out.println("Value savita is at index " + i);
+			}
+		}
+		
+		for(String name:list1) {
+			
+			System.out.println(name);
+		}
+
+// Sorting of the data in ascending order
+		Collections.sort(list1);
+		System.out.println(list1);
+		
+		// Sorting of the data in descending order
+		Collections.sort(list1,Collections.reverseOrder());
+		System.out.println(list1);
+	}
+
+
+	}
+
+}
+
+//======================================================
+
+package collections;
+
+import java.util.HashMap;
+
+public class MapExample {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		
+		HashMap<String,Integer> map1 = new HashMap<String,Integer>();
+		
+		map1.put("Item1", 100);
+		map1.put("Item2", 200);
+		map1.put("Item3", 100);
+		map1.put("Item4", 50);
+		
+		System.out.println(map1);
+		
+		// update the value of already present item
+		map1.put("Item3", 300);
+		System.out.println(map1);
+		
+		// find the price of item4 from map
+		System.out.println("price of item4 is " + map1.get("Item4"));
+		
+		// remove item2 from the map
+		map1.remove("Item2");
+		System.out.println(map1);
+
+//iterate through map
+		for(int value:map1.values()) {
+			
+			System.out.println("value is " + value);
+		}
+		
+		for(String key:map1.keySet()) {
+			
+			System.out.println("The key is " + key);
+			System.out.println("The value is " + map1.get(key));
+		}
+
+// find out occurrence of each word in the string using hashmap
+		
+		String str1 = "clean world green world happy world";
+		
+		// clean 1
+		// green 1
+		// happy 1
+		// world 3
+
+
+	}
+
+}
+
+
+//================================================
+
+Push code to github
+
+Right click on project > properties > copy the path
+cd C:\Users\dell\eclipse-workspace\Feb23\CoreJava
+git init
+git add .
+git commit -m “first commit”
+git remote add origin https://github.com/nicks204/Core-Java.git
+git push origin master
+
+
+
+//=======================================================
+
+pom.xml
+
+<dependencies>
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<version>3.8.1</version>
+			<scope>test</scope>
+		</dependency>
+		<!-- https://mvnrepository.com/artifact/org.seleniumhq.selenium/selenium-java -->
+		<dependency>
+			<groupId>org.seleniumhq.selenium</groupId>
+			<artifactId>selenium-java</artifactId>
+			<version>3.141.59</version>
+		</dependency>
+		<!-- https://mvnrepository.com/artifact/io.github.bonigarcia/webdrivermanager -->
+		<dependency>
+			<groupId>io.github.bonigarcia</groupId>
+			<artifactId>webdrivermanager</artifactId>
+			<version>5.6.0</version>
+		</dependency>
+
+</dependencies>
+
+
+//=====================================================
+
+package uitest;
+
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+import io.github.bonigarcia.wdm.WebDriverManager;
+
+public class LaunchBrowser {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		
+		WebDriverManager.chromedriver().setup();
+		WebDriver driver = new ChromeDriver();
+		driver.get("https://simplilearn.com/");
+	}
+
+}
+
+package uitest;
+
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+import io.github.bonigarcia.wdm.WebDriverManager;
+
+public class LaunchBrowser {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		
+		WebDriverManager.chromedriver().setup();
+		WebDriver driver = new ChromeDriver();
+		driver.get("https://simplilearn.com/");
+	}
+
+}
+
+//============================================
+
+package uitest;
+
+import java.util.concurrent.TimeUnit;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+import io.github.bonigarcia.wdm.WebDriverManager;
+
+public class LoginTest {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+		WebDriverManager.chromedriver().setup();
+		WebDriver driver = new ChromeDriver();
+		driver.get("https://simplilearn.com/");
+
+		driver.manage().window().maximize();
+		driver.manage().timeouts().implicitlyWait(3000, TimeUnit.MILLISECONDS);
+
+		// click on the login link
+		WebElement loginLink = driver.findElement(By.linkText("Log in"));
+		loginLink.click();
+
+		WebElement UserName = driver.findElement(By.name("user_login"));
+		UserName.sendKeys("abc@xyz.com");
+
+		WebElement Password = driver.findElement(By.id("password"));
+		Password.sendKeys("Abc@12345");
+
+		WebElement rememberMe = driver.findElement(By.id("remember-me"));
+		rememberMe.click();
+
+		WebElement LoginBtn = driver.findElement(By.name("btn_login"));
+		LoginBtn.click();
+		
+		WebElement errorMessage = driver.findElement(By.className("error_msg"));
+		System.out.println("The error message is " + errorMessage.getText());
+
+List<WebElement> links = driver.findElements(By.tagName("a"));
+		System.out.println("total num of links are " + links.size());
+
+
+	}
+
+}
+
+System.setProperty("webdriver.chrome.driver","chromedriver.exe");
+//=================================
+
+package uitest;
+
+import java.util.concurrent.TimeUnit;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+import io.github.bonigarcia.wdm.WebDriverManager;
+
+public class FbLogin {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		
+		WebDriverManager.chromedriver().setup();
+		WebDriver driver = new ChromeDriver();
+		driver.get("https://www.facebook.com//");
+		
+		driver.manage().window().maximize();
+		driver.manage().timeouts().implicitlyWait(3000, TimeUnit.MILLISECONDS);
+		
+		
+		WebElement UserName= driver.findElement(By.id("email"));
+		loginLink1.sendKeys("abc@xyz.com");
+		
+		WebElement Password = driver.findElement(By.id("pass"));
+		Password .sendKeys("Abc@12345");
+		
+		WebElement LoginBtn = driver.findElement(By.name("login"));
+		LoginBtn.click();
+	}
+
+	}
+
+}
+
+
+/////////////////////
+
+
+package uitest;
+
+import java.util.concurrent.TimeUnit;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+import io.github.bonigarcia.wdm.WebDriverManager;
+
+public class FbSignUp {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		
+		WebDriverManager.chromedriver().setup();
+		WebDriver driver = new ChromeDriver();
+		driver.get("https://www.facebook.com//");
+		
+		driver.manage().window().maximize();
+		driver.manage().timeouts().implicitlyWait(3000, TimeUnit.MILLISECONDS);
+		
+		WebElement NewAccount = driver.findElement(By.xpath("//a[text()='Create new account']"));
+		NewAccount.click();
+		
+		WebElement FirstName = driver.findElement(By.xpath("//input[@name='firstname']"));
+		FirstName.sendKeys("Rahul");
+		
+		WebElement LastName = driver.findElement(By.xpath("//input[@name='lastname']"));
+		LastName.sendKeys("Roy");
+		
+		WebElement Email = driver.findElement(By.xpath("//input[@name='reg_email__']"));
+		Email.sendKeys("abc@xyz.com");
+		
+		WebElement ReEmail = driver.findElement(By.xpath("//input[@name='reg_email_confirmation__']"));
+
+		ReEmail.sendKeys("abc@xyz.com");
+		
+		WebElement Password = driver.findElement(By.xpath("//input[@name='reg_passwd__']"));
+		Password.sendKeys("Abc@12345");
+		
+		
+		WebElement Day = driver.findElement(By.id("day"));
+		Select ddDay = new Select(Day);
+		ddDay.selectByValue("10");
+		
+		WebElement Month = driver.findElement(By.id("month"));
+		Select ddMonth = new Select(Month);
+		//ddMonth.selectByValue("1");
+		ddMonth.selectByVisibleText("Jan");
+
+		WebElement Year = driver.findElement(By.id("year"));
+		Select ddYear = new Select(Year);
+		ddYear.selectByValue("2005");
+
+		
+WebElement Gender = driver.findElement(By.xpath("//input[@type='radio' and @value='2']"));
+		Gender.click();
+
+WebElement Gender = driver.findElement(By.xpath("//input[@type='radio' and @value='2']"));
+		Gender.click();
+	
+		List<WebElement> Months = driver.findElements(By.xpath("//select[@id='month']/option"));
+		for(WebElement mon: Months) {
+			
+			System.out.println("Month is " + mon.getText());
+		}
+
+
+		List<WebElement> Years = driver.findElements(By.xpath("//select[@id='year']/option"));
+		for(WebElement yer: Years) {
+			
+			System.out.println("Year is " + yer.getText());
+		}
+
+driver.close();
+		
+
+
+		
+		
+		
+		
+
+	}
+
+}
+
+
+
+
+/====================================================================
+
+Day -9
+
+Testing Types
+
+Unit Testing  : dev team will do using junit 
+
+TDD ( Test Driven Development) - software development approach generally followed by the developers 
+Tool used to implement TDD - Junit
+Testers help dev team to write Junit test cases 
+
+Functional Testing :  testing will do that using TestNG/Cucumber
+Manual Testing
+Automation Testing 
+
+User Acceptance Testing ( UAT)
+Manual Testing
+
+
+
+//===========================================================
+
+Junit dependencies
+
+<dependencies>
+    <dependency>
+			<groupId>org.junit.jupiter</groupId>
+			<artifactId>junit-jupiter-engine</artifactId>
+			<version>5.7.0</version>
+
+		</dependency>
+
+		<!-- https://mvnrepository.com/artifact/org.junit.jupiter/junit-jupiter-api -->
+		<dependency>
+			<groupId>org.junit.jupiter</groupId>
+			<artifactId>junit-jupiter-api</artifactId>
+			<version>5.7.0</version>
+
+		</dependency>
+
+		<!-- https://mvnrepository.com/artifact/org.junit.jupiter/junit-jupiter-params -->
+		<dependency>
+			<groupId>org.junit.jupiter</groupId>
+			<artifactId>junit-jupiter-params</artifactId>
+			<version>5.7.0</version>
+
+		</dependency>
+
+		<!-- https://mvnrepository.com/artifact/org.junit.platform/junit-platform-runner -->
+		<dependency>
+			<groupId>org.junit.platform</groupId>
+			<artifactId>junit-platform-runner</artifactId>
+			<version>1.7.0</version>
+		</dependency>
+  </dependencies>
+
+<build>
+		<testResources>
+			<testResource>
+				<directory>src/test/java</directory>
+				<excludes>
+					<exclude>**/*.java</exclude>
+				</excludes>
+			</testResource>
+		</testResources>
+		<plugins>
+			<plugin>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<configuration>
+					<source>1.8</source>
+					<target>1.8</target>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+//======================================
+
+package junit;
+
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Test;
+
+public class CalculatorTest {
+	
+	@Test
+	public void AddTest1() {
+		
+		Calculator cal = new Calculator();
+		
+		int actResult = cal.Add(5, 6);
+		int expResult = 11;
+		
+		Assertions.assertEquals(expResult, actResult);
+		
+	}
+	
+	@Test
+	public void SubTest1() {
+		
+		Calculator cal = new Calculator();
+		
+		int actResult = cal.Sub(11, 6);
+		int expResult = 5;
+		
+		Assertions.assertEquals(expResult, actResult);
+		
+	}
+
+}
+
+
+//==========================================
+
+package junit;
+
+public class Calculator {
+	
+	
+	public int Add(int a, int b) {
+		
+		return a+b;
+	}
+	
+	
+	public int Sub(int a,int b) {
+		
+		return a-b ;
+	}
+
+}
+
+
+//====================================================
+
+package junit;
+
+public class PalindromeCheck {
+	
+	
+	public boolean isPalindrome(String name) {
+		
+		String reversedString = "";
+		
+		for (int i = name.length(); i > 0; i--) {
+			reversedString = reversedString + name.charAt(i - 1);
+		}
+		
+		if(name.equals(reversedString)) {
+			return true;
+		}else {
+			return false;
+		}
+		
+	}
+
+}
+
+//=====================================================
+
+package junit;
+
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Test;
+
+public class PalindromeTest {
+	
+	
+	@Test
+	public void PostiveTest() {
+		
+		PalindromeCheck obj1 = new PalindromeCheck();
+		Assertions.assertEquals(true, obj1.isPalindrome("madam"));
+		
+	}
+	
+
+	@Test
+	public void NegativeTest() {
+		
+		PalindromeCheck obj1 = new PalindromeCheck();
+		Assertions.assertEquals(false, obj1.isPalindrome("nikunj"));
+		
+	}
+
+
+}
+
+BDD - Behaviour Driven Development
+
+
+Calculator with BDD
+
+Add
+Scenario1 : addition of two positive numbers 
+Scenario2 : addition of two negative numbers 
+Scenario3 : one positive and one negative numbers  
+
+Sub
+
+Mul
+
+Div
+
+Square Root
+
+
+
+How is BDD achieved ?
+Using Language called Gherkin
+Gherkin is used to design the BDD scenario
+It will also be acting as requirement document
+For doing automation we use Cucumber Framework 
+
+
+Gherkin
+Gherkin is a language using which we can write BDD scenarios
+It is plain english sentences which can be understandable by everyone
+It has certain syntaxes to follow using Given , When and Then
+It can be created in any editor like notepad
+		
+
+
+Cucumber
+It is a framework which helps us to automate BDD Ghekin scenario 
+This can be added as a dependency to POM.xml
+<dependencies>
+		<!-- https://mvnrepository.com/artifact/io.cucumber/cucumber-java -->
+		<dependency>
+			<groupId>io.cucumber</groupId>
+			<artifactId>cucumber-java</artifactId>
+			<version>5.6.0</version>
+		</dependency>
+
+		<!-- https://mvnrepository.com/artifact/io.cucumber/cucumber-junit -->
+		<dependency>
+			<groupId>io.cucumber</groupId>
+			<artifactId>cucumber-junit</artifactId>
+			<version>5.6.0</version>
+			<scope>test</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>org.seleniumhq.selenium</groupId>
+			<artifactId>selenium-java</artifactId>
+			<version>3.141.59</version>
+		</dependency>
+
+		<!-- https://mvnrepository.com/artifact/io.github.bonigarcia/webdrivermanager -->
+		<dependency>
+			<groupId>io.github.bonigarcia</groupId>
+			<artifactId>webdrivermanager</artifactId>
+			<version>5.6.0</version>
+		</dependency>
+
+	</dependencies>
+
+
+<build>
+		<plugins>
+			<plugin>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<version>3.8.0</version>
+				<configuration>
+					<source>1.8</source>
+					<target>1.8</target>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+
+
+
+
+
+
+
+
+// Day-10
+
+package app;
+
+public class Calculator {
+
+	public int Add(int a, int b) {
+
+		return a + b;
+	}
+
+	public int Sub(int a, int b) {
+
+		return a - b;
+	}
+
+}
+
+//========================================================
+
+Feature: This feature will help to develop a calculator
+
+  Background: 
+    Given I have the calculator
+    
+
+  Scenario: To add two numbers
+    When I add 5 and 4
+    Then I should get the result as 9
+
+  Scenario: To sub two numbers
+    When I sub 12 and 4
+    Then I should get the result as 8
+
+  Scenario Outline: To add two number with multiple data set
+    When I add <num1> and <num2>
+    Then I should get the result as <result>
+
+    Examples: 
+      | num1 | num2 | result |
+      |    7 |    9 |     16 |
+      |   12 |   13 |     25 |
+      |   -8 |   18 |     10 |
+
+
+Scenario: To add multiple numbers
+    When I add below numbers
+      |  4 |
+      |  6 |
+      | 13 |
+      | 16 |
+      | 10 |
+    Then I should get the result as 49
+
+ Scenario: To calculate the total bill of all the items
+    When I buy below items with given price
+      | Coffee   | 50 |
+      | Burger   | 80 |
+      | Icecream | 40 |
+    Then I should get the result as 170
+
+  Scenario: To calculate the total bill of all the items with different quantity
+    When I buy below items with given price and quantity
+      | Coffee   | 2 | 50 |
+      | Burger   | 3 | 80 |
+      | Icecream | 1 | 40 |
+    Then I should get the result as 380
+
+
+//============================================================
+
+package stepdefs;
+
+import org.junit.Assert;
+
+import app.Calculator;
+import io.cucumber.java.en.Given;
+import io.cucumber.java.en.Then;
+import io.cucumber.java.en.When;
+
+
+public class CalculatorStepdefs {
+	
+	Calculator calc;
+	int result;
+	
+	@Given("I have the calculator")
+	public void i_have_the_calculator() {
+	    // Write code here that turns the phrase above into concrete actions
+		
+		calc = new Calculator();
+	}
+
+	@When("I add {int} and {int}")
+	public void i_add_and(int num1, int num2) {
+	    // Write code here that turns the phrase above into concrete actions
+		
+		result = calc.Add(num1, num2);
+	   
+	}
+
+	@Then("I should get the result as {int}")
+	public void i_should_get_the_result_as(int expResult) {
+	    // Write code here that turns the phrase above into concrete actions
+	   
+		Assert.assertEquals(expResult, result);
+	}
+
+	@When("I sub {int} and {int}")
+	public void i_sub_and(int num1, int num2) {
+	    // Write code here that turns the phrase above into concrete actions
+		
+		result = calc.Sub(num1, num2);
+	   
+	}
+
+@When("I add below numbers")
+	public void i_add_below_numbers(List<Integer> numbers) {
+		
+		for(int num:numbers) {
+			
+			result = calc.Add(num, result); //49
+			
+		}
+	   
+	}
+
+@When("I buy below items with given price")
+	public void i_buy_below_items_with_given_price(Map<String,Integer> items) {
+		
+		for(int value:items.values()) {
+			
+			result = calc.Add(value, result);
+		}	
+	}
+
+@When("I buy below items with given price and quantity")
+	public void i_buy_below_items_with_given_price_and_quantity(io.cucumber.datatable.DataTable dataTable) {
+	    // Write code here that turns the phrase above into concrete actions
+	    
+		
+		int rows = dataTable.height();
+		
+		for(int i=0;i<rows;i++) {
+			
+			int qnt = Integer.parseInt(dataTable.cell(i, 1));
+			int price = Integer.parseInt(dataTable.cell(i,2));
+			
+			result = calc.Add( qnt*price , result);
+		}
+		
+	}
+
+}
+
+//=====================================================
+
+Feature: This feature will be used to login into Simplilearn Website
+
+  Scenario: Validate Login success scenario
+    Given I have launched the application URL
+    And I click on the Login link
+    When I enter the username
+    And I enter the password
+    And I click on the login button
+    Then I should land on the home page
+
+
+//========================================================
+
+package stepdefs;
+
+import io.cucumber.java.en.And;
+import io.cucumber.java.en.Given;
+import io.cucumber.java.en.Then;
+import io.cucumber.java.en.When;
+
+public class LoginStepDefs {
+	
+	@Given("I have launched the application URL")
+	public void i_have_launched_the_application_URL() {
+	    // Write code here that turns the phrase above into concrete actions
+	    
+	}
+
+	@Given("I click on the Login link")
+	public void i_click_on_the_Login_link() {
+	    // Write code here that turns the phrase above into concrete actions
+	   
+	}
+
+	@When("I enter the username")
+	public void i_enter_the_username() {
+	    // Write code here that turns the phrase above into concrete actions
+	   
+	}
+
+	@And("I enter the password")
+	public void i_enter_the_password() {
+	    // Write code here that turns the phrase above into concrete actions
+	    
+	}
+
+	@And("I click on the login button")
+	public void i_click_on_the_login_button() {
+	    // Write code here that turns the phrase above into concrete actions
+	  
+	}
+
+	@Then("I should land on the home page")
+	public void i_should_land_on_the_home_page() {
+	    // Write code here that turns the phrase above into concrete actions
+	   
+	}
+
+}
+
+// Day-11
+
+Base class
+//=================================================================
+
+package stepdefs;
+
+import java.util.concurrent.TimeUnit;
+
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+import io.cucumber.java.After;
+import io.cucumber.java.Before;
+import io.github.bonigarcia.wdm.WebDriverManager;
+
+public class BaseClass {
+
+	public static WebDriver driver;
+
+	@Before
+	public void SetUp() {
+
+		WebDriverManager.chromedriver().setup();
+		driver = new ChromeDriver();
+		driver.get("https://simplilearn.com/");
+
+		driver.manage().window().maximize();
+		driver.manage().timeouts().implicitlyWait(3000, TimeUnit.MILLISECONDS);
+	}
+
+	@After
+	public void TearDown() {
+
+		driver.close();
+
+	}
+
+}
+
+//======================================================
+
+Feature: This feature will be used to login into Simplilearn Website
+
+  Background: 
+    Given I have launched the application URL
+    And I click on the Login link
+
+  Scenario: Validate Login success scenario
+    When I enter the username
+    And I enter the password
+    And I click on the login button
+    Then I should land on the home page
+
+  Scenario: Validate Login failiure scenario using data parameters
+    When I enter the username as "Abc@xyz.com"
+    And I enter the password as "Abc@1234"
+    And I click on the login button
+    Then I should get the error message as "The email or password you have entered is invalid."
+
+
+  Scenario Outline: Validate Login failiure scenario using Examples
+    When I enter the username as "<UserName>"
+    And I enter the password as "<Password>"
+    And I click on the login button
+    Then I should get the error message as "<ErrorMsg>"
+
+    Examples: 
+      | UserName    | Password | ErrorMsg                                           |
+      | Abc@xyz.com | Abc@1234 | The email or password you have entered is invalid. |
+      | Pqr@xyz.com | Pqr@1234 | The email or password you have entered is invalid. |
+
+ Scenario: Validate the other login options on the screen
+    Then I should see below login options on the screen
+      | Google   |
+      | Facebook |
+      | Linkedin |
+      | Apple    |
+
+
+
+//============================================================
+
+package stepdefs;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+
+import io.cucumber.java.en.And;
+import io.cucumber.java.en.Given;
+import io.cucumber.java.en.Then;
+import io.cucumber.java.en.When;
+
+public class LoginStepDefs {
+	
+	
+	WebDriver driver = BaseClass.driver;
+	
+	@Given("I have launched the application URL")
+	public void i_have_launched_the_application_URL() {
+	    // Write code here that turns the phrase above into concrete actions
+	    
+		driver.get("https://www.simplilearn.com/");
+	}
+
+	@Given("I click on the Login link")
+	public void i_click_on_the_Login_link() {
+	    // Write code here that turns the phrase above into concrete actions
+		
+		WebElement LoginLink = driver.findElement(By.linkText("Log in"));
+		LoginLink.click();
+	   
+	}
+
+	@When("I enter the username")
+	public void i_enter_the_username() {
+	    // Write code here that turns the phrase above into concrete actions
+		
+		WebElement UserName = driver.findElement(By.name("user_login"));
+		UserName.sendKeys("abc@xyz.com");
+	   
+	}
+
+	@And("I enter the password")
+	public void i_enter_the_password() {
+	    // Write code here that turns the phrase above into concrete actions
+		
+		WebElement Password = driver.findElement(By.name("user_pwd"));
+		Password.sendKeys("Abc@1234");
+	    
+	}
+
+	@And("I click on the login button")
+	public void i_click_on_the_login_button() {
+	    // Write code here that turns the phrase above into concrete actions
+	  
+		WebElement LoginBtn = driver.findElement(By.name("btn_login"));
+		LoginBtn.click();
+	}
+
+	@Then("I should land on the home page")
+	public void i_should_land_on_the_home_page() {
+	    // Write code here that turns the phrase above into concrete actions
+	   
+	}
+
+@When("I enter the username as {string}")
+	public void i_enter_the_username_as(String UserNameVal) {
+		// Write code here that turns the phrase above into concrete actions
+		
+		WebElement UserName = driver.findElement(By.name("user_login"));
+		UserName.sendKeys(UserNameVal);
+		
+	}
+
+	@When("I enter the password as {string}")
+	public void i_enter_the_password_as(String PasswordVal) {
+		// Write code here that turns the phrase above into concrete actions
+		WebElement Password = driver.findElement(By.name("user_pwd"));
+		Password.sendKeys(PasswordVal);
+
+	}
+
+	@Then("I should get the error message as {string}")
+	public void i_should_get_the_error_message_as(String expError) {
+		// Write code here that turns the phrase above into concrete actions
+		
+		WebElement Error = driver.findElement(By.className("error_msg"));
+		String ActError = Error.getText();
+		Assert.assertEquals(expError, ActError);
+		
+	}
+
+	@Then("I should see below login options on the screen")
+	public void i_should_see_below_login_options_on_the_screen(List<String> Options) {
+	    // Write code here that turns the phrase above into concrete actions
+	    
+		for(String option:Options) {
+			
+			WebElement LoginOption = driver.findElement(By.xpath("//button[@data-clickedtype='" + option + "']"));
+			Assert.assertTrue(LoginOption.isDisplayed());
+		}
+	}
+
+
+}
+
+//=========================================================
+
+package stepdefs;
+
+import org.junit.runner.RunWith;
+
+import io.cucumber.junit.Cucumber;
+import io.cucumber.junit.CucumberOptions;
+
+@RunWith(Cucumber.class)
+
+@CucumberOptions(
+		
+		monochrome=true,
+		plugin= {"pretty"},
+		features= "src/test/java/features",
+		glue="stepdefs",
+		//tags= {"@Regression or @Sanity"} // or condition 
+		//tags= {"@Regression and @Sanity"} // and condition
+		//tags= {"@Calculator"} // feature level tag
+		tags= {"@Login and not @WIP"} // do not execute WIP
+		)
+
+public class TestRunner {
+	
+
+}
+
+
+
+
+
+
+Day-12
+
+//===========================================
+
+
+	<build>
+		<plugins>
+			<plugin>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<version>3.8.0</version>
+				<configuration>
+					<source>1.8</source>
+					<target>1.8</target>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+
+
+//=======================================
+
+eCommerce using TesnNG  ( Submit this as Project 1 in LMS)
+
+eCommerce(swag labs) website automation using TestNG
+Automate this website https://www.saucedemo.com/v1/
+Reference project: https://github.com/xaviermpa/frommylaptop/tree/main/SwagLabsAutomation
+
+
+Pizza Hut automation using Cucumber ( Submit this as Project 2 in LMS)
+
+Create a new maven project
+Group id: com.simplilearn
+Artifact Id :  PizzahutAutomation
+Add all the dependencies same as CucumberProject
+Create two packages 
+features 
+stepDefs
+Under Stepefs package create BaseClass.java with @Before and @Afters
+Create the feature file as below
+Add the steps def code for each step
+Create the runner file and run  the scenario for runner file
+Run the scenario from command line
+
+
+Feature: This feature will be used to automate PizzaHut Website
+
+  Scenario: This scenario will be used to Place the Order
+    Given I have launched the application
+    When I enter the location as "Pune"
+    And I select the very first suggestion from the list
+    Then I should land on the Deals page
+    And I select the tab as "Pizzas"
+    And I select the pizza as "Schezwan Margherita"
+    Then I should see the pizza is added to the cart
+    And I click on the Checkout button
+    Then I should be landed on the secured checkout page
+    And I enter the personal details
+      | Name   | Rajesh Sharma |
+      | Mobile |     888888888 |
+      | Email  | abc@xyz.com   |
+    And I enter the address details
+      | 123 Main Street |
+      | Some Landmark   |
+    Then I should see three payment options
+      | Online Payment |
+      | Paytm          |
+      | Cash           |
+    Then I select the payment option as "Cash"
+
+
+
+
+
+
+
+Imp xpaths
+
+//*[contains(text(),'Pune Railway Station')]
+//a[@data-synth='link--deals--side']//span[text()='Deals']
+//a[@data-synth='link--pizzas--side']//span[text()='Pizzas']
+//div[text()='"+ myPizza + "']//following::span[text()='Add'][1]
+
+package stepDefs;
+
+import org.junit.Assert;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+
+import io.cucumber.java.en.Given;
+import io.cucumber.java.en.Then;
+import io.cucumber.java.en.When;
+
+public class OrdersStepDef {
+	
+	WebDriver driver = BaseClass.driver;
+	
+	
+	@Given("I have launched the application")
+	public void i_have_launched_the_application() {
+	    // Write code here that turns the phrase above into concrete actions
+	   driver.get("https://www.pizzahut.co.in/");
+	}
+
+	@When("I enter the location as {string}")
+	public void i_enter_the_location_as(String string) {
+	    // Write code here that turns the phrase above into concrete actions
+		WebElement Location = driver.findElement(By.xpath("//input[@placeholder='Enter your location for delivery']"));
+		Location.sendKeys("Pune");
+	   
+	}
+
+	@When("I select the very first suggestion from the list")
+	public void i_select_the_very_first_suggestion_from_the_list() throws InterruptedException {
+	    // Write code here that turns the phrase above into concrete actions
+		
+		WebElement Place = driver.findElement(By.xpath("//*[contains(text(),'Pune Railway Station')]"));
+		Place.click();
+		Thread.sleep(5000);
+	   
+	}
+
+	@Then("I should land on the Deals page")
+	public void i_should_land_on_the_Deals_page() {
+	    // Write code here that turns the phrase above into concrete actions
+		WebElement Deals = driver.findElement(By.xpath("//a[@data-synth='link--deals--side']//span[text()='Deals']"));
+		Assert.assertTrue(Deals.isDisplayed());
+	}
+
+	@Then("I select the tab as {string}")
+	public void i_select_the_tab_as(String string) {
+	    // Write code here that turns the phrase above into concrete actions
+		WebElement Pizzas = driver.findElement(By.xpath("//a[@data-synth='link--pizzas--side']//span[text()='Pizzas']"));
+		Pizzas.click();
+	}
+
+	@Then("I select the pizza as {string}")
+	public void i_select_the_pizza_as(String myPizza) {
+	    // Write code here that turns the phrase above into concrete actions
+		
+		WebElement MyPizza = driver.findElement(By.xpath("//div[text()='"+ myPizza + "']//following::span[text()='Add'][1]"));
+		MyPizza.click();
+	  
+	}
+
+	@Then("I should see the pizza is added to the cart")
+	public void i_should_see_the_pizza_is_added_to_the_cart() {
+	    // Write code here that turns the phrase above into concrete actions
+		WebElement BaseketItem = driver.findElement(By.xpath("//div[@data-testid='basket-item-product']//div[contains(text(),'Personal Schezwan Margherita')]"));
+		Assert.assertTrue(BaseketItem.isDisplayed());
+	}
+
+	@Then("I click on the Checkout button")
+	public void i_click_on_the_Checkout_button() {
+	    // Write code here that turns the phrase above into concrete actions
+		WebElement Checkout = driver.findElement(By.xpath("//div[@class='basket-checkout']//a"));
+		Checkout.click();
+	  
+	}
+
+	@Then("I should be landed on the secured checkout page")
+	public void i_should_be_landed_on_the_secured_checkout_page() {
+	    // Write code here that turns the phrase above into concrete actions
+	    
+	}
+
+	@Then("I enter the personal details")
+	public void i_enter_the_personal_details(io.cucumber.datatable.DataTable dataTable) {
+	    // Write code here that turns the phrase above into concrete actions
+	    
+	}
+
+	@Then("I enter the address details")
+	public void i_enter_the_address_details(io.cucumber.datatable.DataTable dataTable) {
+	    // Write code here that turns the phrase above into concrete actions
+	 }
+
+	@Then("I should see three payment options")
+	public void i_should_see_three_payment_options(io.cucumber.datatable.DataTable dataTable) {
+	    // Write code here that turns the phrase above into concrete actions
+	   
+	}
+
+	@Then("I select the payment option as {string}")
+	public void i_select_the_payment_option_as(String string) {
+	    // Write code here that turns the phrase above into concrete actions
+	  
+	}
+
+
+}
+
+
+
+
+

@@ -1,0 +1,59 @@
+https://katalon-demo-cura.herokuapp.com/
+
+Custom commands for CYpress:
+https://on.cypress.io/custom-commands
+
+CSG company in bangalore- it works only on CYPRESS
+BDD Cucummber documentation - https://cucumber.io/docs/cucumber/
+
+one it inside a describe block is like one test case
+
+Setting up new property for locating test cases:
+integrationFolder: '<foldername>'
+
+
+-------------------------------Configuration Properties-------------------
+baseUrl: 'https://example.com',
+defaultCommandTimeout: 10000,
+defaultCommandTimeout: 10000,
+integrationFolder: 'test-specs',
+
+
+First way through chaining:
+cy.get('#mybutton').click();
+
+Second way is indirect:
+const btn = cy.get('#mybutton');
+
+btn.click();
+
+
+Ty type anything in text fields on website - type() method is used
+
+
+--------------Methods in cypress-------------------
+
+Launch websites by visit
+cy.visit('https://katalon-demo-cura.herokuapp.com/')
+
+
+
+Documentation of cypress:
+https://docs.cypress.io/guides/end-to-end-testing/writing-your-first-end-to-end-test
+
+
+https://katalon-demo-cura.herokuapp.com/#appointment
+https://docs.cypress.io/guides/core-concepts/interacting-with-elements
+
+
+=====
+Code 
+
+describe('Test Scenario for Login', () => {
+    it('TestLogin1', () => {
+      cy.visit('https://www.saucedemo.com/');
+      cy.get('#user-name').type("standard_user");
+      cy.get('#password').type("secret_sauce");
+      cy.get('.submit-button btn_action').click();
+    })
+  })
